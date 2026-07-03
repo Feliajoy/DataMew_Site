@@ -1,0 +1,78 @@
+/* ═══════════════════════════════════════════════════════════
+   DATA MEW — Modern CSS Reset & Base Styles
+   ═══════════════════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 100%;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--text-light);
+  background-color: var(--deep-espresso);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-bold);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-normal) var(--ease-out-expo);
+}
+
+img, video, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol { list-style: none; }
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button { cursor: pointer; }
+
+::selection {
+  background-color: var(--terracotta);
+  color: var(--cream);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--deep-espresso);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--espresso-lighter);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--terracotta);
+}

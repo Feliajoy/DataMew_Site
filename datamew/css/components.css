@@ -1,0 +1,203 @@
+/* ═══════════════════════════════════════════════════════════
+   DATA MEW — Component Styles
+   Reusable UI elements: buttons, cards, badges, etc.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Buttons ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.85rem 2rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: opacity var(--duration-normal) var(--ease-out-expo);
+  opacity: 0;
+  z-index: -1;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--terracotta), var(--terracotta-glow));
+  color: var(--cream);
+  box-shadow: 0 4px 15px rgba(125, 59, 131, 0.3);
+}
+
+.btn-primary::before {
+  background: linear-gradient(135deg, var(--terracotta-glow), var(--dusty-rose));
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-terracotta);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--sage-teal);
+  color: var(--sage-lighter);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--sage-teal);
+  color: var(--deep-espresso);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-sage);
+}
+
+.btn-ghost {
+  color: var(--text-light);
+  padding: 0.7rem 1.5rem;
+}
+
+.btn-ghost:hover {
+  color: var(--terracotta);
+  background: var(--terracotta-soft);
+}
+
+.btn .btn-icon {
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.btn:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* ── Glass Card ─────────────────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.glass-card:hover {
+  border-color: rgba(237, 228, 242, 0.18);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ── Section Headings ───────────────────────────────────── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: var(--space-lg);
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: var(--terracotta);
+  border-radius: var(--radius-pill);
+}
+
+.section-title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  color: var(--cream);
+  margin-bottom: var(--space-md);
+}
+
+.section-subtitle {
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  max-width: 540px;
+  line-height: var(--lh-relaxed);
+}
+
+/* ── Badge / Tag ────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.8rem;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-pill);
+  background: var(--terracotta-soft);
+  color: var(--terracotta);
+  border: 1px solid rgba(125, 59, 131, 0.2);
+}
+
+.badge-sage {
+  background: var(--sage-soft);
+  color: var(--sage-teal);
+  border-color: rgba(224, 211, 237, 0.2);
+}
+
+.badge-rose {
+  background: var(--rose-soft);
+  color: var(--rose-lighter);
+  border-color: rgba(155, 95, 166, 0.2);
+}
+
+/* ── Divider ────────────────────────────────────────────── */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--terracotta), var(--dusty-rose));
+  border-radius: var(--radius-pill);
+  margin: var(--space-lg) 0;
+}
+
+/* ── Tooltip ────────────────────────────────────────────── */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 0.4rem 0.8rem;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  background: var(--espresso-lighter);
+  color: var(--text-light);
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
